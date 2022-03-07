@@ -1,8 +1,15 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { AppProps } from 'next/app';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+import { AuthProvider } from '../contexts/AuthContext';
 
-export default MyApp
+import '../styles/globals.css';
+
+const MyApp = ({ Component, pageProps }: AppProps) => {
+  return (
+    <AuthProvider>
+      <Component {...pageProps} />
+    </AuthProvider>
+  );
+};
+
+export default MyApp;
